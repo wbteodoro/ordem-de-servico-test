@@ -8,38 +8,57 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const initialState = {
-    quantity: null,
-    description: null,
-    value: null
-};
-
 class FormServices extends Component {
 
-    state = initialState;
-
-    formHandleChange(name, value)
-    {
-        const state = {...this.state};
-        state[name] = value;
-        this.setState(state);
-    }
+    state = {
+        data: {
+            quantity: null,
+            description: null,
+            value: null
+        },
+        opened: false
+    };
 
     handleClose = () => {
         this.props.onClose();
+        this.setState({opened: false});
     };
 
     handleSave = () => {
-        this.props.onSave(this.state);
+        this.props.onSave(this.state.data);
 
+        this.setState({
+            opened: false,
+            data: {
+                quantity: null,
+                value: null,
+                description: null
+            }});
+
+        this.handleClose();
     };
+
+    /**
+     * this is used on inputs for change values of form state
+     * @param name = state index
+     * @param value state value
+     */
+    formHandleChange = (name, value) => {
+        const state ={...this.state};
+        state.data[name] = value;
+        this.setState(state);
+    };
+
+    /**
+     * this method open modal with: state.opened = true
+     * and set form state
+     * @param data = form state
+     */
+    open = (data = {quantity: null, description: null, value: null}) => this.setState({ opened: true, data});
 
     render() {
         return (
-            <Dialog
-                open={this.props.open}
-                keepMounted
-            >
+            <Dialog open={this.state.opened}>
                 <DialogTitle id="alert-dialog-slide-title">
                     Adicionar/Editar Serviço
                 </DialogTitle>
@@ -49,7 +68,7 @@ class FormServices extends Component {
                             <TextField
                                 fullWidth
                                 label={'Valor'}
-                                value={this.state.value || ''}
+                                value={this.state.data.value || ''}
                                 onChange={e => this.formHandleChange('value', e.target.value)}
                                 margin="normal" variant="outlined"
                             />
@@ -59,7 +78,7 @@ class FormServices extends Component {
                             <TextField
                                 fullWidth
                                 label={'Quantidade'}
-                                value={this.state.quantity || ''}
+                                value={this.state.data.quantity || ''}
                                 onChange={e => this.formHandleChange('quantity', e.target.value)}
                                 margin="normal" variant="outlined"
                             />
@@ -69,7 +88,7 @@ class FormServices extends Component {
                             <TextField
                                 fullWidth
                                 label={'Descrição'}
-                                value={this.state.description || ''}
+                                value={this.state.data.description || ''}
                                 onChange={e => this.formHandleChange('description', e.target.value)}
                                 margin="normal" variant="outlined"
                                 multiline
@@ -78,31 +97,28 @@ class FormServices extends Component {
                         </Grid>
                     </Grid>
                 </DialogContent>
+
                 <DialogActions>
                     <Button variant="contained" color="primary" onClick={this.handleSave} className={'btn-save'}>
                         Salvar
                     </Button>
-
                     <Button variant="contained" onClick={this.handleClose} className={'btn-close'}>
                         Cancelar
                     </Button>
                 </DialogActions>
-            </Dialog>
 
+            </Dialog>
         );
     }
 }
 
 FormServices.defaultProps = {
-    onSave: () => null,
-    onClose: () => null,
-    open: false
+    onClose: () => null
 };
 
 FormServices.propTypes = {
-    onSave: PropTypes.func,
-    onClose: PropTypes.func,
-    open: PropTypes.bool
+    onSave: PropTypes.func.isRequired,
+    onClose: PropTypes.func
 };
 
 export default FormServices;

@@ -1,54 +1,60 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { shallow, mount } from 'enzyme';
 import FormServices from "./FormServices";
 import sinon from 'sinon';
 
 describe('Test <FormService />', () => {
 
-    // it('should render correctly', () => {
-    //     const wrapper = shallow(<FormServices/>);
-    // });
-
-    //todo test component props
-
     it('should have component initial state', () => {
-        const wrapper = shallow(<FormServices/>);
+        const wrapper = shallow(<FormServices onSave={() => null}/>);
         const component = wrapper.instance();
         const initialState = {
-            quantity: null,
-            description: null,
-            value: null
+            data: {
+                quantity: null,
+                description: null,
+                value: null
+            },
+            opened: false
         };
 
         expect(component.state).toEqual(initialState);
+
     });
 
-
-    it('should change component state by index', () => {
-        const wrapper = shallow(<FormServices/>);
+    it('should change component state by method formHandleChange when passed index and value', () => {
+        const wrapper = shallow(<FormServices onSave={() => null}/>);
         const component = wrapper.instance();
 
         const state = {
-            quantity: 'quantity',
-            description: 'description',
-            value: 'value'
+            quantity: 'quantity 1',
+            description: 'description 1',
+            value: 'value 1'
         };
 
-        component.formHandleChange('quantity', state.quantity);
-        component.formHandleChange('description', state.description);
-        component.formHandleChange('value', state.value);
+         component.formHandleChange('quantity', state.quantity);
+         component.formHandleChange('description', state.description);
+         component.formHandleChange('value', state.value);
 
-        expect(component.state).toEqual(state);
+        expect(component.state.data).toEqual(state);
     });
 
-
+    it('should open modal with data of form state', () => {
+        const wrapper = shallow(<FormServices onSave={() => null} />);
+        const component = wrapper.instance();
+        const formState = { description: 'test', quantity: 1, value: 20};
+        component.open(formState);
+        expect(component.state.data).toEqual(formState);
+    });
 
     it('should emit onSave event when the save button is clicked', () => {
         const onSave = sinon.spy();
         const wrapper = mount(<FormServices onSave={onSave} />);
+        const component = wrapper.instance();
+        component.open();
+        wrapper.update();
         const button = wrapper.find('button.btn-save');
         expect(button.length).toEqual(1);
-
         button.simulate('click');
         expect(onSave.callCount).toEqual(1);
         wrapper.unmount();
@@ -62,31 +68,40 @@ describe('Test <FormService />', () => {
         expect(onSave.callCount).toEqual(1);
     });
 
-    it('should emit onSave event with state in callback args', () => {
+    it('parameters of function "onSave" should be the same that component form data', () => {
         const onSave = sinon.spy();
         const wrapper = shallow(<FormServices onSave={onSave} />);
         const component = wrapper.instance();
-        const args = { description: null, quantity: null, value: null };
+        const formState = { description: 'test', quantity: 1, value: 20};
+        component.open(formState);
+        component.handleSave();
+        expect(onSave.firstCall.args[0]).toEqual(formState);
+    });
+
+    it('should change state for opened when use method open', () => {
+        const wrapper = shallow(<FormServices onSave={() => null}/>);
+        const component = wrapper.instance();
+        const formState = { description: 'test', quantity: 2, value: 10};
+        component.open(formState);
+        expect(component.state.opened).toEqual(true);
+    });
+
+    it('should reset state when onSave event is emitted', () => {
+        const onSave = sinon.spy();
+        const wrapper = shallow(<FormServices onSave={onSave} />);
+        const component = wrapper.instance();
+
+        const stateInitial = { description: null, quantity: null, value: null };
+        const formState = { description: 'test', quantity: 100, value: 10 };
+        component.open(formState);
 
         component.handleSave();
-        expect(onSave.firstCall.args[0]).toEqual(args);
+        expect(component.state.data).toEqual(stateInitial);
     });
-
-    //todo verify how to do the test whe pass state for edit mode
-    it('should reset state when onSave event is emitted', () => {
-        // const onSave = sinon.spy();
-        // const wrapper = shallow(<FormServices onSave={onSave} />);
-        // const component = wrapper.instance();
-        // const args = { description: null, quantity: null, value: null };
-        //
-        // component.handleSave();
-        // expect(onSave.firstCall.args[0]).toEqual(args);
-    });
-
 
     it('should emit onClose event when use the handleClose method', () => {
         const onClose = sinon.spy();
-        const wrapper = shallow(<FormServices onClose={onClose} />);
+        const wrapper = shallow(<FormServices onSave={() => null} onClose={onClose} />);
         const component = wrapper.instance();
         component.handleClose();
         expect(onClose.callCount).toEqual(1);
@@ -95,7 +110,9 @@ describe('Test <FormService />', () => {
     it('should emit onClose event when the close button is clicked', () => {
 
         const onClose = sinon.spy();
-        const wrapper = mount(<FormServices onClose={onClose} />);
+        const wrapper = mount(<FormServices onSave={() => null} onClose={onClose} />);
+        wrapper.instance().open();
+        wrapper.update();
         const button = wrapper.find('button.btn-close');
         expect(button.length).toEqual(1);
 
@@ -104,12 +121,32 @@ describe('Test <FormService />', () => {
         wrapper.unmount();
     });
 
-    it('check snapshot version', () => {
-        const wrapper = shallow(<FormServices/>);
+    it('should render correctly when it is opened', () => {
+        const wrapper = shallow(<FormServices onSave={() => null}/>);
+        const component = wrapper.instance();
+        component.open();
         expect(wrapper).toMatchSnapshot();
     });
 
-    //todo test prop serviceData
-    //todo test snapshot component with prop open false
+    it('should emit onSave event when use the method handleSave', () => {
+        const wrapper = shallow(<FormServices onSave={() => null} />);
+        const component = wrapper.instance();
+        component.open();
+        expect(component.state.opened).toEqual(true);
+        component.handleClose();
+        expect(component.state.opened).toEqual(false);
+    });
 
+    it('should check snapshot version with state opened false', function () {
+        const wrapper = shallow(<FormServices onSave={() => null}/>);
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    it('check snapshot version with state opened true', () => {
+        const wrapper = shallow(<FormServices onSave={() => null}/>);
+        wrapper.instance().open();
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    //todo test defaultProps
 });
