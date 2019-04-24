@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import FormServices from "./modules/order-services/components/FormServices/FormServices";
+import ListServices from './modules/order-services/components/ListServices/ListServices';
 
 class App extends Component {
 
@@ -26,8 +27,16 @@ class App extends Component {
                     ref={this.formService}
                     onSave={data => this.setState({saved: data, editID: this.state.editID+1 })}
                 />
+                <ListServices
+                    services={[
+                        {description: 'comprar parafuso', quantity: 10, value: 10},
+                        {description: 'comprar broca', quantity: 5, value: 120}
+                    ]}        
+                    onClickServiceDeleteButton={() => null}
+                    onClickServiceEditButton={() => null}
+                />
             </div>
-        );
+        )
     }
 }
 

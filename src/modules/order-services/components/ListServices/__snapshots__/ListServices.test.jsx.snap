@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing ListServices Component should check snapshot version 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <WithStyles(ListServices)
+    onClickServiceDeleteButton={[Function]}
+    onClickServiceEditButton={[Function]}
+    services={
+      Array [
+        Object {
+          "description": "x",
+          "quantity": 1,
+          "value": 10,
+        },
+        Object {
+          "description": "y",
+          "quantity": 5,
+          "value": 120,
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "classes": Object {
+        "root": "ListServices-root-1",
+        "table": "ListServices-table-2",
+      },
+      "onClickServiceDeleteButton": [Function],
+      "onClickServiceEditButton": [Function],
+      "services": Array [
+        Object {
+          "description": "x",
+          "quantity": 1,
+          "value": 10,
+        },
+        Object {
+          "description": "y",
+          "quantity": 5,
+          "value": 120,
+        },
+      ],
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "classes": Object {
+          "root": "ListServices-root-1",
+          "table": "ListServices-table-2",
+        },
+        "onClickServiceDeleteButton": [Function],
+        "onClickServiceEditButton": [Function],
+        "services": Array [
+          Object {
+            "description": "x",
+            "quantity": 1,
+            "value": 10,
+          },
+          Object {
+            "description": "y",
+            "quantity": 5,
+            "value": 120,
+          },
+        ],
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;
