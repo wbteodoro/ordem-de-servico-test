@@ -3,12 +3,8 @@ import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 import FormClient from './FormClient';
 
-//todo criar evento de click no botão salvar
-//todo criar evento de click no botão cancelar
 //todo criar metodo para abrir modal passando os dados necessários para edição
 //todo quando salvar deve verificar se cpf ou cnpj está ativado e apagar o que nao estiver ativo
-
-
 
 describe('Form Client Component', () => {
 
@@ -27,7 +23,6 @@ describe('Form Client Component', () => {
         expect(componentInstance.state.infoClient).toEqual(initialState);
     });
 
-    //todo realizar melhoria no teste de handleChange
     it('should change state of a specific property when handleChange method is used', () => {
         const wrapper = shallow(<FormClient onClickSaveButton={() => null}/>);
         const component = wrapper.instance();
@@ -65,31 +60,42 @@ describe('Form Client Component', () => {
 
     });
 
-    /**
-     * simulation test
-     */
-    // todo deve fechar a janela quando salvar e resetar o estado.
+    describe('FormClient onClickSaveButton() event', () => {
 
-    describe('onClickSaveButton from FormClient prop', () => {
-
-        const expectedParams = {
-            name: 'José Test',
-            phone: '5150161656',
-            cpf: '5101505-25',
-            cnpj: '',
-            birth_date: '03/01/1996',
-            email: 'teste@gmail.com',
-            fantasy_name: ''
+        const stateResetedExpected = {
+            infoClient: {
+                name: '',
+                phone: '',
+                cpf: '',
+                cnpj: '',
+                birth_date: '',
+                fantasy_name: '',
+                email: '',
+            },
+            open: false,
+            cnpjSelected: false
+        };
+        const stateModified = {
+            infoClient: {
+                name: 'John Doe',
+                phone: '48 3357 2437',
+                cpf: '800.550.551-89',
+                cnpj: '654156.6545.516',
+                birth_date: '20/10/1999',
+                fantasy_name: 'JohnComp',
+                email: 'johndoe@gmail.com',
+            },
+            open: true,
+            cnpjSelected: true
         };
 
         const onClickSaveButtonEvent = sinon.spy();
 
-        const wrapper = mount(<FormClient onClickSaveButton={onClickSaveButtonEvent}/>);
+        const wrapper = mount(<FormClient onClickSaveButton={onClickSaveButtonEvent} onClickCloseButton={() => null} />);
         const component = wrapper.instance();
 
-        component.setState({ infoClient: {...expectedParams, cnpj: '', fantasy_name: ''}, open: true });
+        component.setState({ ...stateModified });
         wrapper.update();
-
         const buttonWrapper = wrapper.find('Button.save-button');
 
         it('should exist just one save button', () => {
@@ -102,14 +108,28 @@ describe('Form Client Component', () => {
         });
 
         it('component state should be parameter in the onClickSaveButton when the same is clicked', () => {
-            expect(onClickSaveButtonEvent.firstCall.args[0]).toEqual(expectedParams);
+            buttonWrapper.first().simulate('click');
+            expect(onClickSaveButtonEvent.firstCall.args[0]).toEqual(stateModified.infoClient);
+        });
+
+        it('handleSaveButton() should pass the parameters to container', () => {
+            component.handleSaveButton();
+            expect(onClickSaveButtonEvent.firstCall.args[0]).toEqual(stateModified.infoClient);
+        });
+
+        it('the modal should be closed when save button is clicked', () => {
+            buttonWrapper.first().simulate('click');
+            expect(component.state.open).toEqual(false);
+        });
+
+        it('the state component should be reseted by resetState() callback event when cancel button is clicked', () => {
+            buttonWrapper.first().simulate('click');
+            expect(component.state).toEqual(stateResetedExpected);
         });
 
     });
 
-
-
-    describe('open() from FormCLient', () => {
+    describe('open() from FormClient', () => {
         const wrapper = mount(<FormClient onClickSaveButton={() => null}/>);
         const component = wrapper.instance();
 
@@ -135,7 +155,7 @@ describe('Form Client Component', () => {
 
     });
 
-    describe('Function handleChangeCpfAndCnpjSelect() in FormClient', () => {
+    describe('Function handleChangeCpfAndCnpjSelect()', () => {
 
         it('CPF or the CNPJ/fantasyName should be empty string when the function handleChangeCpfAndCnpjSelect() is called', () => {
             const wrapper = shallow(<FormClient onClickSaveButton={() => null}/>);
@@ -155,53 +175,78 @@ describe('Form Client Component', () => {
 
     });
 
-
-
-
-    // todo quando botao cancelar for clicado deve resetar estado e fechar modal.
-
-    it('should emit event onClickCloseButton when click on cancel button', () => {
-
-        const expectedParams = {
-            name: 'José Test',
-            phone: '5150161656',
-            cpf: '5101505-25',
-            cnpj: '',
-            birth_date: '03/01/1996',
-            email: 'teste@gmail.com',
-            fantasy_name: ''
+    describe('FormClient onClickCloseButton() event', () => {
+        const stateResetedExpected = {
+            infoClient: {
+                name: '',
+                phone: '',
+                cpf: '',
+                cnpj: '',
+                birth_date: '',
+                fantasy_name: '',
+                email: '',
+            },
+            open: false,
+            cnpjSelected: false
+        };
+        const stateModified = {
+            infoClient: {
+                name: 'John Doe',
+                phone: '48 3357 2437',
+                cpf: '800.550.551-89',
+                cnpj: '654156.6545.516',
+                birth_date: '20/10/1999',
+                fantasy_name: 'JohnComp',
+                email: 'johndoe@gmail.com',
+            },
+            open: true,
+            cnpjSelected: true
         };
 
         const onClickCloseButtonEvent = sinon.spy();
-
         const wrapper = mount(<FormClient onClickSaveButton={() => null} onClickCloseButton={onClickCloseButtonEvent} />);
         const component = wrapper.instance();
 
+        component.setState({ ...stateModified });
+        wrapper.update();
         const buttonWrapper = wrapper.find('Button.cancel-button');
-        expect(buttonWrapper.length).toEqual(1);
 
-        buttonWrapper.first().simulate('click');
-        expect(onClickCloseButtonEvent.callCount).toEqual(1);
+        it('state component should be reseted to the initial state by handleCancelButton()', () => {
+            component.handleCancelButton();
+            expect(component.state).toEqual(stateResetedExpected);
+            onClickCloseButtonEvent.resetHistory();
+        });
 
-        expect(onClickCloseButtonEvent.firstCall.args[0]).toEqual(expectedParams);
+        it('should exist just one cancel button', () => {
+            expect(buttonWrapper.length).toEqual(1);
+        });
+
+        it('should emit event onClickCloseButton when click on cancel button', () => {
+            buttonWrapper.first().simulate('click');
+            expect(onClickCloseButtonEvent.callCount).toEqual(1);
+        });
+
+        it('the modal should be closed', () => {
+            buttonWrapper.first().simulate('click');
+            expect(component.state.open).toEqual(false)
+        });
+
+        it('the state component should be reseted by the resetState() callback event when cancel button is clicked', () => {
+            buttonWrapper.first().simulate('click');
+            expect(component.state).toEqual(stateResetedExpected)
+        });
+
     });
 
-
-    /**
-     * test render correctly
-     */
-    it('Save button should exist', () => {
-        const wrapper = shallow(<FormClient onClickSaveButton={() => null}/>);
-        expect(wrapper.find('.save-button').length).toEqual(1)
-    });
-
-    it('Cancel button should exist', () => {
-        const wrapper = shallow(<FormClient onClickSaveButton={() => null}/>);
-        expect(wrapper.find('.cancel-button').length).toEqual(1)
-    });
-
-    it('test version snapshot', () => {
+    it('test version snapshot without modal', () => {
         const wrapper = shallow(<FormClient onClickSaveButton={() => null} />);
         expect(wrapper).toMatchSnapshot();
+    });
+
+    it('test version snapshot with modal', () => {
+        const wrapper = shallow(<FormClient onClickSaveButton={() => null} />);
+        const component = wrapper.instance();
+        component.setState({ open: true});
+        expect(component).toMatchSnapshot();
     });
 });

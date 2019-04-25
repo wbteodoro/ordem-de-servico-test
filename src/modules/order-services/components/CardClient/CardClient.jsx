@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import FormClient from '../FormClient/FormClient';
+import Button from '@material-ui/core/Button';
 
 
 class CardClient extends Component {
@@ -7,10 +8,10 @@ class CardClient extends Component {
     formClient = React.createRef();
 
     openModal = () => {
-        this.formClient.current.open()
+        this.formClient.current.open();
     };
 
-    atualizaEstado(dados)
+    updateState(dados)
     {
         console.log(dados)
     }
@@ -18,7 +19,10 @@ class CardClient extends Component {
     render() {
         return (
             <div>
-                <FormClient ref={this.formClient} onClickSaveButton={(dados) => this.atualizaEstado(dados)} />
+                <Button variant="outlined" color="primary" onClick={() => this.openModal()}>
+                    Cadastrar
+                </Button>
+                <FormClient ref={this.formClient} onClickSaveButton={(dados) => this.updateState(dados)} onClickCloseButton={() => null} />
             </div>
         );
     }

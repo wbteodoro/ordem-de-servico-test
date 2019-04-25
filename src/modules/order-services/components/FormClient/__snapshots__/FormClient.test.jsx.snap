@@ -1,6 +1,233 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form Client Component test version snapshot 1`] = `
+exports[`Form Client Component test version snapshot with modal 1`] = `
+FormClient {
+  "context": Object {},
+  "handleCancelButton": [Function],
+  "handleChange": [Function],
+  "handleChangeCpfAndCnpjSelect": [Function],
+  "handleSaveButton": [Function],
+  "open": [Function],
+  "props": Object {
+    "onClickSaveButton": [Function],
+  },
+  "refs": Object {},
+  "resetState": [Function],
+  "setState": [Function],
+  "state": Object {
+    "cnpjSelected": false,
+    "infoClient": Object {
+      "birth_date": "",
+      "cnpj": "",
+      "cpf": "",
+      "email": "",
+      "fantasy_name": "",
+      "name": "",
+      "phone": "",
+    },
+    "open": true,
+  },
+  "updater": Updater {
+    "_callbacks": Array [],
+    "_renderer": ReactShallowRenderer {
+      "_context": Object {},
+      "_didScheduleRenderPhaseUpdate": false,
+      "_dispatcher": Object {
+        "readContext": [Function],
+        "useCallback": [Function],
+        "useContext": [Function],
+        "useDebugValue": [Function],
+        "useEffect": [Function],
+        "useImperativeHandle": [Function],
+        "useLayoutEffect": [Function],
+        "useMemo": [Function],
+        "useReducer": [Function],
+        "useRef": [Function],
+        "useState": [Function],
+      },
+      "_element": <FormClient
+        onClickSaveButton={[Function]}
+      />,
+      "_firstWorkInProgressHook": null,
+      "_forcedUpdate": false,
+      "_instance": [Circular],
+      "_isReRender": false,
+      "_newState": null,
+      "_numberOfReRenders": 0,
+      "_renderPhaseUpdates": null,
+      "_rendered": <div>
+        <WithStyles(Dialog)
+          fullWidth={true}
+          maxWidth="sm"
+          open={true}
+        >
+          <WithStyles(DialogTitle)>
+            Adicionar/Editar Cliente
+          </WithStyles(DialogTitle)>
+          <WithStyles(DialogContent)
+            style={
+              Object {
+                "paddingTop": "10px",
+              }
+            }
+          >
+            <WithStyles(Grid)
+              container={true}
+              spacing={8}
+            >
+              <WithStyles(Grid)
+                item={true}
+                lg={6}
+                md={6}
+                sm={12}
+                xs={12}
+              >
+                <TextField
+                  fullWidth={true}
+                  label="Nome"
+                  onChange={[Function]}
+                  required={false}
+                  select={false}
+                  value=""
+                  variant="outlined"
+                />
+              </WithStyles(Grid)>
+              <WithStyles(Grid)
+                item={true}
+                lg={6}
+                md={6}
+                sm={12}
+                xs={12}
+              >
+                <TextField
+                  fullWidth={true}
+                  label="Data de Nascimento"
+                  onChange={[Function]}
+                  required={false}
+                  select={false}
+                  value=""
+                  variant="outlined"
+                />
+              </WithStyles(Grid)>
+              <WithStyles(Grid)
+                item={true}
+                lg={12}
+                md={12}
+                sm={12}
+                xs={12}
+              >
+                <WithStyles(FormGroup)
+                  row={true}
+                >
+                  <WithStyles(WithFormControlContext(FormControlLabel))
+                    control={
+                      <WithStyles(Radio)
+                        checked={true}
+                        className="radio-cpf"
+                        color="primary"
+                        onChange={[Function]}
+                      />
+                    }
+                    label="CPF"
+                    labelPlacement="end"
+                  />
+                  <WithStyles(WithFormControlContext(FormControlLabel))
+                    control={
+                      <WithStyles(Radio)
+                        checked={false}
+                        className="radio-cnpj"
+                        color="primary"
+                        onChange={[Function]}
+                      />
+                    }
+                    label="CNPJ"
+                    labelPlacement="end"
+                  />
+                </WithStyles(FormGroup)>
+              </WithStyles(Grid)>
+              <WithStyles(Grid)
+                item={true}
+                lg={12}
+                md={12}
+                sm={12}
+                xs={12}
+              >
+                <TextField
+                  fullWidth={true}
+                  label="CPF"
+                  onChange={[Function]}
+                  required={false}
+                  select={false}
+                  value=""
+                  variant="outlined"
+                />
+              </WithStyles(Grid)>
+              <WithStyles(Grid)
+                item={true}
+                lg={6}
+                md={6}
+                sm={12}
+                xs={12}
+              >
+                <TextField
+                  fullWidth={true}
+                  label="e-mail"
+                  onChange={[Function]}
+                  required={false}
+                  select={false}
+                  value=""
+                  variant="outlined"
+                />
+              </WithStyles(Grid)>
+              <WithStyles(Grid)
+                item={true}
+                lg={6}
+                md={6}
+                sm={12}
+                xs={12}
+              >
+                <TextField
+                  fullWidth={true}
+                  label="Telefone"
+                  onChange={[Function]}
+                  required={false}
+                  select={false}
+                  value=""
+                  variant="outlined"
+                />
+              </WithStyles(Grid)>
+            </WithStyles(Grid)>
+          </WithStyles(DialogContent)>
+          <WithStyles(DialogActions)>
+            <WithStyles(Button)
+              className="save-button"
+              color="primary"
+              onClick={[Function]}
+              variant="contained"
+            >
+              Salvar Dados
+            </WithStyles(Button)>
+            <WithStyles(Button)
+              className="cancel-button"
+              color="default"
+              onClick={[Function]}
+              variant="contained"
+            >
+              Cancelar
+            </WithStyles(Button)>
+          </WithStyles(DialogActions)>
+        </WithStyles(Dialog)>
+      </div>,
+      "_rendering": false,
+      "_updater": [Circular],
+      "_workInProgressHook": null,
+    },
+  },
+  Symbol(enzyme.__setState__): [Function],
+}
+`;
+
+exports[`Form Client Component test version snapshot without modal 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <FormClient
@@ -23,7 +250,7 @@ ShallowWrapper {
       "children": <WithStyles(Dialog)
         fullWidth={true}
         maxWidth="sm"
-        open={true}
+        open={false}
       >
         <WithStyles(DialogTitle)>
           Adicionar/Editar Cliente
@@ -80,8 +307,7 @@ ShallowWrapper {
               sm={12}
               xs={12}
             >
-              <RadioGroup
-                onChange={[Function]}
+              <WithStyles(FormGroup)
                 row={true}
               >
                 <WithStyles(WithFormControlContext(FormControlLabel))
@@ -90,6 +316,7 @@ ShallowWrapper {
                       checked={true}
                       className="radio-cpf"
                       color="primary"
+                      onChange={[Function]}
                     />
                   }
                   label="CPF"
@@ -101,12 +328,13 @@ ShallowWrapper {
                       checked={false}
                       className="radio-cnpj"
                       color="primary"
+                      onChange={[Function]}
                     />
                   }
                   label="CNPJ"
                   labelPlacement="end"
                 />
-              </RadioGroup>
+              </WithStyles(FormGroup)>
             </WithStyles(Grid)>
             <WithStyles(Grid)
               item={true}
@@ -243,8 +471,7 @@ ShallowWrapper {
                 sm={12}
                 xs={12}
               >
-                <RadioGroup
-                  onChange={[Function]}
+                <WithStyles(FormGroup)
                   row={true}
                 >
                   <WithStyles(WithFormControlContext(FormControlLabel))
@@ -253,6 +480,7 @@ ShallowWrapper {
                         checked={true}
                         className="radio-cpf"
                         color="primary"
+                        onChange={[Function]}
                       />
                     }
                     label="CPF"
@@ -264,12 +492,13 @@ ShallowWrapper {
                         checked={false}
                         className="radio-cnpj"
                         color="primary"
+                        onChange={[Function]}
                       />
                     }
                     label="CNPJ"
                     labelPlacement="end"
                   />
-                </RadioGroup>
+                </WithStyles(FormGroup)>
               </WithStyles(Grid)>
               <WithStyles(Grid)
                 item={true}
@@ -345,7 +574,7 @@ ShallowWrapper {
         ],
         "fullWidth": true,
         "maxWidth": "sm",
-        "open": true,
+        "open": false,
       },
       "ref": null,
       "rendered": Array [
@@ -410,8 +639,7 @@ ShallowWrapper {
                 sm={12}
                 xs={12}
               >
-                <RadioGroup
-                  onChange={[Function]}
+                <WithStyles(FormGroup)
                   row={true}
                 >
                   <WithStyles(WithFormControlContext(FormControlLabel))
@@ -420,6 +648,7 @@ ShallowWrapper {
                         checked={true}
                         className="radio-cpf"
                         color="primary"
+                        onChange={[Function]}
                       />
                     }
                     label="CPF"
@@ -431,12 +660,13 @@ ShallowWrapper {
                         checked={false}
                         className="radio-cnpj"
                         color="primary"
+                        onChange={[Function]}
                       />
                     }
                     label="CNPJ"
                     labelPlacement="end"
                   />
-                </RadioGroup>
+                </WithStyles(FormGroup)>
               </WithStyles(Grid)>
               <WithStyles(Grid)
                 item={true}
@@ -542,8 +772,7 @@ ShallowWrapper {
                   sm={12}
                   xs={12}
                 >
-                  <RadioGroup
-                    onChange={[Function]}
+                  <WithStyles(FormGroup)
                     row={true}
                   >
                     <WithStyles(WithFormControlContext(FormControlLabel))
@@ -552,6 +781,7 @@ ShallowWrapper {
                           checked={true}
                           className="radio-cpf"
                           color="primary"
+                          onChange={[Function]}
                         />
                       }
                       label="CPF"
@@ -563,12 +793,13 @@ ShallowWrapper {
                           checked={false}
                           className="radio-cnpj"
                           color="primary"
+                          onChange={[Function]}
                         />
                       }
                       label="CNPJ"
                       labelPlacement="end"
                     />
-                  </RadioGroup>
+                  </WithStyles(FormGroup)>
                 </WithStyles(Grid)>,
                 <WithStyles(Grid)
                   item={true}
@@ -713,8 +944,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "children": <RadioGroup
-                    onChange={[Function]}
+                  "children": <WithStyles(FormGroup)
                     row={true}
                   >
                     <WithStyles(WithFormControlContext(FormControlLabel))
@@ -723,6 +953,7 @@ ShallowWrapper {
                           checked={true}
                           className="radio-cpf"
                           color="primary"
+                          onChange={[Function]}
                         />
                       }
                       label="CPF"
@@ -734,12 +965,13 @@ ShallowWrapper {
                           checked={false}
                           className="radio-cnpj"
                           color="primary"
+                          onChange={[Function]}
                         />
                       }
                       label="CNPJ"
                       labelPlacement="end"
                     />
-                  </RadioGroup>,
+                  </WithStyles(FormGroup)>,
                   "item": true,
                   "lg": 12,
                   "md": 12,
@@ -759,6 +991,7 @@ ShallowWrapper {
                             checked={true}
                             className="radio-cpf"
                             color="primary"
+                            onChange={[Function]}
                           />
                         }
                         label="CPF"
@@ -770,13 +1003,13 @@ ShallowWrapper {
                             checked={false}
                             className="radio-cnpj"
                             color="primary"
+                            onChange={[Function]}
                           />
                         }
                         label="CNPJ"
                         labelPlacement="end"
                       />,
                     ],
-                    "onChange": [Function],
                     "row": true,
                   },
                   "ref": null,
@@ -790,6 +1023,7 @@ ShallowWrapper {
                           checked={true}
                           className="radio-cpf"
                           color="primary"
+                          onChange={[Function]}
                         />,
                         "label": "CPF",
                         "labelPlacement": "end",
@@ -807,6 +1041,7 @@ ShallowWrapper {
                           checked={false}
                           className="radio-cnpj"
                           color="primary"
+                          onChange={[Function]}
                         />,
                         "label": "CNPJ",
                         "labelPlacement": "end",
@@ -1025,7 +1260,7 @@ ShallowWrapper {
         "children": <WithStyles(Dialog)
           fullWidth={true}
           maxWidth="sm"
-          open={true}
+          open={false}
         >
           <WithStyles(DialogTitle)>
             Adicionar/Editar Cliente
@@ -1082,8 +1317,7 @@ ShallowWrapper {
                 sm={12}
                 xs={12}
               >
-                <RadioGroup
-                  onChange={[Function]}
+                <WithStyles(FormGroup)
                   row={true}
                 >
                   <WithStyles(WithFormControlContext(FormControlLabel))
@@ -1092,6 +1326,7 @@ ShallowWrapper {
                         checked={true}
                         className="radio-cpf"
                         color="primary"
+                        onChange={[Function]}
                       />
                     }
                     label="CPF"
@@ -1103,12 +1338,13 @@ ShallowWrapper {
                         checked={false}
                         className="radio-cnpj"
                         color="primary"
+                        onChange={[Function]}
                       />
                     }
                     label="CNPJ"
                     labelPlacement="end"
                   />
-                </RadioGroup>
+                </WithStyles(FormGroup)>
               </WithStyles(Grid)>
               <WithStyles(Grid)
                 item={true}
@@ -1245,8 +1481,7 @@ ShallowWrapper {
                   sm={12}
                   xs={12}
                 >
-                  <RadioGroup
-                    onChange={[Function]}
+                  <WithStyles(FormGroup)
                     row={true}
                   >
                     <WithStyles(WithFormControlContext(FormControlLabel))
@@ -1255,6 +1490,7 @@ ShallowWrapper {
                           checked={true}
                           className="radio-cpf"
                           color="primary"
+                          onChange={[Function]}
                         />
                       }
                       label="CPF"
@@ -1266,12 +1502,13 @@ ShallowWrapper {
                           checked={false}
                           className="radio-cnpj"
                           color="primary"
+                          onChange={[Function]}
                         />
                       }
                       label="CNPJ"
                       labelPlacement="end"
                     />
-                  </RadioGroup>
+                  </WithStyles(FormGroup)>
                 </WithStyles(Grid)>
                 <WithStyles(Grid)
                   item={true}
@@ -1347,7 +1584,7 @@ ShallowWrapper {
           ],
           "fullWidth": true,
           "maxWidth": "sm",
-          "open": true,
+          "open": false,
         },
         "ref": null,
         "rendered": Array [
@@ -1412,8 +1649,7 @@ ShallowWrapper {
                   sm={12}
                   xs={12}
                 >
-                  <RadioGroup
-                    onChange={[Function]}
+                  <WithStyles(FormGroup)
                     row={true}
                   >
                     <WithStyles(WithFormControlContext(FormControlLabel))
@@ -1422,6 +1658,7 @@ ShallowWrapper {
                           checked={true}
                           className="radio-cpf"
                           color="primary"
+                          onChange={[Function]}
                         />
                       }
                       label="CPF"
@@ -1433,12 +1670,13 @@ ShallowWrapper {
                           checked={false}
                           className="radio-cnpj"
                           color="primary"
+                          onChange={[Function]}
                         />
                       }
                       label="CNPJ"
                       labelPlacement="end"
                     />
-                  </RadioGroup>
+                  </WithStyles(FormGroup)>
                 </WithStyles(Grid)>
                 <WithStyles(Grid)
                   item={true}
@@ -1544,8 +1782,7 @@ ShallowWrapper {
                     sm={12}
                     xs={12}
                   >
-                    <RadioGroup
-                      onChange={[Function]}
+                    <WithStyles(FormGroup)
                       row={true}
                     >
                       <WithStyles(WithFormControlContext(FormControlLabel))
@@ -1554,6 +1791,7 @@ ShallowWrapper {
                             checked={true}
                             className="radio-cpf"
                             color="primary"
+                            onChange={[Function]}
                           />
                         }
                         label="CPF"
@@ -1565,12 +1803,13 @@ ShallowWrapper {
                             checked={false}
                             className="radio-cnpj"
                             color="primary"
+                            onChange={[Function]}
                           />
                         }
                         label="CNPJ"
                         labelPlacement="end"
                       />
-                    </RadioGroup>
+                    </WithStyles(FormGroup)>
                   </WithStyles(Grid)>,
                   <WithStyles(Grid)
                     item={true}
@@ -1715,8 +1954,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": <RadioGroup
-                      onChange={[Function]}
+                    "children": <WithStyles(FormGroup)
                       row={true}
                     >
                       <WithStyles(WithFormControlContext(FormControlLabel))
@@ -1725,6 +1963,7 @@ ShallowWrapper {
                             checked={true}
                             className="radio-cpf"
                             color="primary"
+                            onChange={[Function]}
                           />
                         }
                         label="CPF"
@@ -1736,12 +1975,13 @@ ShallowWrapper {
                             checked={false}
                             className="radio-cnpj"
                             color="primary"
+                            onChange={[Function]}
                           />
                         }
                         label="CNPJ"
                         labelPlacement="end"
                       />
-                    </RadioGroup>,
+                    </WithStyles(FormGroup)>,
                     "item": true,
                     "lg": 12,
                     "md": 12,
@@ -1761,6 +2001,7 @@ ShallowWrapper {
                               checked={true}
                               className="radio-cpf"
                               color="primary"
+                              onChange={[Function]}
                             />
                           }
                           label="CPF"
@@ -1772,13 +2013,13 @@ ShallowWrapper {
                               checked={false}
                               className="radio-cnpj"
                               color="primary"
+                              onChange={[Function]}
                             />
                           }
                           label="CNPJ"
                           labelPlacement="end"
                         />,
                       ],
-                      "onChange": [Function],
                       "row": true,
                     },
                     "ref": null,
@@ -1792,6 +2033,7 @@ ShallowWrapper {
                             checked={true}
                             className="radio-cpf"
                             color="primary"
+                            onChange={[Function]}
                           />,
                           "label": "CPF",
                           "labelPlacement": "end",
@@ -1809,6 +2051,7 @@ ShallowWrapper {
                             checked={false}
                             className="radio-cnpj"
                             color="primary"
+                            onChange={[Function]}
                           />,
                           "label": "CNPJ",
                           "labelPlacement": "end",

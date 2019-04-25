@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import { PropTypes } from "prop-types";
 import TextField from '@material-ui/core/TextField';
 import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormGroup from '@material-ui/core/FormGroup';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -23,12 +23,12 @@ class FormClient extends Component {
             fantasy_name: '',
             email: '',
         },
-        open: true,
+        open: false,
         cnpjSelected: false
     };
 
-    open = (infoClient) =>{
-        this.setState({ infoClient: infoClient, open: true});
+    open = (infoClient = {  }) =>{
+        this.setState({ infoClient: { ...this.state.infoClient, ...infoClient }, open: true});
     };
 
     handleChange = (name, value) => {
@@ -38,10 +38,39 @@ class FormClient extends Component {
     };
 
     handleChangeCpfAndCnpjSelect = () => {
-      this.setState({ cnpjSelected: !this.state.cnpjSelected});
-      if (!this.state.cnpjSelected) this.setState({ infoClient: { cnpj: "", fantasy_name: "" }});
-      else this.setState({ infoClient: { cpf: "" }});
+      const state = {...this.state};
+      const infoClient = {...state.infoClient};
 
+      state.cnpjSelected = !state.cnpjSelected;
+      state.infoClient = (!state.cnpjSelected) ? {...infoClient,  cnpj: "", fantasy_name: ""} : {...infoClient,  cpf: ""};
+      this.setState(state);
+    };
+
+    handleSaveButton = () => {
+        this.props.onClickSaveButton(this.state.infoClient);
+        this.resetState();
+    };
+
+    handleCancelButton = () => {
+        this.props.onClickCloseButton();
+        this.resetState();
+    };
+
+    resetState = () => {
+        const initialFormClientState = {
+            infoClient: {
+                name: '',
+                phone: '',
+                cpf: '',
+                cnpj: '',
+                birth_date: '',
+                fantasy_name: '',
+                email: '',
+            },
+            open: false,
+            cnpjSelected: false
+        };
+        this.setState({...initialFormClientState});
     };
 
     render() {
@@ -74,21 +103,20 @@ class FormClient extends Component {
                             </Grid>
 
                             <Grid item xs={12} sm={12} md={12} lg={12}>
-                                <RadioGroup
-                                    onChange={e => this.handleChangeCpfAndCnpjSelect()}
+                                <FormGroup
                                     row
                                 >
                                     <FormControlLabel
-                                        control={<Radio className={'radio-cpf'} color="primary" checked={!this.state.cnpjSelected}/>}
+                                        control={<Radio className={'radio-cpf'} onChange={e => this.handleChangeCpfAndCnpjSelect()} color="primary" checked={!this.state.cnpjSelected}/>}
                                         label="CPF"
                                         labelPlacement="end"
                                     />
                                     <FormControlLabel
-                                        control={<Radio className={'radio-cnpj'} color="primary" checked={this.state.cnpjSelected}/>}
+                                        control={<Radio className={'radio-cnpj'} onChange={e => this.handleChangeCpfAndCnpjSelect()} color="primary" checked={this.state.cnpjSelected}/>}
                                         label="CNPJ"
                                         labelPlacement="end"
                                     />
-                                </RadioGroup>
+                                </FormGroup>
                             </Grid>
                             <Grid item xs={12} sm={12} md={12} lg={12}>
                                 {!this.state.cnpjSelected && (
@@ -146,10 +174,10 @@ class FormClient extends Component {
                         </Grid>
                     </DialogContent>
                     <DialogActions>
-                        <Button className={'save-button'} color="primary" variant={"contained"} onClick={() => this.props.onClickSaveButton(this.state.infoClient)}>
+                        <Button className={'save-button'} color="primary" variant={"contained"} onClick={() => this.handleSaveButton() }>
                             Salvar Dados
                         </Button>
-                        <Button className={'cancel-button'} color="default" variant={"contained"} onClick={() => this.props.onClickCloseButton(this.state.infoClient)}>
+                        <Button className={'cancel-button'} color="default" variant={"contained"} onClick={() => this.handleCancelButton() }>
                             Cancelar
                         </Button>
                     </DialogActions>
