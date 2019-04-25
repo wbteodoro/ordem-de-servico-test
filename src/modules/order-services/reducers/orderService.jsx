@@ -1,11 +1,9 @@
-import {ADD_SERVICE} from "../actions/type";
+import {ADD_CLIENT, ADD_SERVICE} from "../actions/type";
 
-const initialState = {
-    client:{},
+export default function orderService(_state = {
+    client: {},
     services: []
-};
-
-export default function orderService(_state = initialState, action)
+}, action)
 {
     const state ={..._state};
 
@@ -15,7 +13,21 @@ export default function orderService(_state = initialState, action)
             state.services.push(action.payload);
             return state;
 
+        case ADD_CLIENT:
+            state.client = action.payload;
+            return state;
+
         default:
             return state;
     }
 }
+
+orderService(undefined, {
+    type: 'ADD_SERVICE',
+    payload: {
+        description: '',
+        value: '',
+        quantity: ''
+    }
+});
+

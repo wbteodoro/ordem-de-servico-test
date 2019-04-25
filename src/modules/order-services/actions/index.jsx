@@ -1,4 +1,4 @@
-import {ADD_SERVICE} from "./type";
+import {ADD_CLIENT, ADD_SERVICE} from "./type";
 import PropTypes from 'prop-types';
 
 
@@ -14,5 +14,12 @@ export const addService = (service) => {
     return {
         type: ADD_SERVICE,
         payload: service
+    }
+};
+
+export const addClient = (data) => {
+     return {
+        type: ADD_CLIENT,
+        payload: data
     }
 };

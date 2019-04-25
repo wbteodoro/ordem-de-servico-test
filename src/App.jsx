@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import FormServices from "./modules/order-services/components/FormServices/FormServices";
 import ListServices from './modules/order-services/components/ListServices/ListServices';
+import CardClient from './modules/order-services/components/CardClient/CardClient';
 
 class App extends Component {
 
@@ -35,6 +36,7 @@ class App extends Component {
                     onClickServiceDeleteButton={() => null}
                     onClickServiceEditButton={() => null}
                 />
+                <CardClient />
             </div>
         )
     }
