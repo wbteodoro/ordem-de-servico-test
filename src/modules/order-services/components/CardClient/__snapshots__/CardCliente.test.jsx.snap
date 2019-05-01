@@ -1,0 +1,834 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing CardClient Component should check snapshot version 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <WithStyles(Card)
+    className={
+      Object {
+        "minWidth": 75,
+      }
+    }
+  >
+    <WithStyles(CardContent)>
+      <WithStyles(Typography)
+        className={
+          Object {
+            "fontSize": 15,
+            "marginBottom": 12,
+          }
+        }
+        color="textSecondary"
+      >
+        Nome: 
+        jose
+      </WithStyles(Typography)>
+      <WithStyles(Typography)
+        className={
+          Object {
+            "fontSize": 15,
+            "marginBottom": 12,
+          }
+        }
+        color="textSecondary"
+      >
+        CPF: 
+        123456
+      </WithStyles(Typography)>
+      <WithStyles(Typography)
+        className={
+          Object {
+            "fontSize": 15,
+            "marginBottom": 12,
+          }
+        }
+        color="textSecondary"
+      >
+        CNPJ: 
+      </WithStyles(Typography)>
+      <WithStyles(Typography)
+        className={
+          Object {
+            "fontSize": 15,
+            "marginBottom": 12,
+          }
+        }
+        color="textSecondary"
+      >
+        Telefone: 
+        30303030
+      </WithStyles(Typography)>
+      <WithStyles(Typography)
+        className={
+          Object {
+            "fontSize": 15,
+            "marginBottom": 12,
+          }
+        }
+        color="textSecondary"
+      >
+        Data de Nascimento: 
+        30
+      </WithStyles(Typography)>
+      <WithStyles(Typography)
+        className={
+          Object {
+            "fontSize": 15,
+            "marginBottom": 12,
+          }
+        }
+        color="textSecondary"
+      >
+        E-mail: 
+        jose@gmail.com
+      </WithStyles(Typography)>
+      <WithStyles(Typography)
+        className={
+          Object {
+            "fontSize": 15,
+            "marginBottom": 12,
+          }
+        }
+        color="textSecondary"
+      >
+        Nome Fantasia:
+      </WithStyles(Typography)>
+    </WithStyles(CardContent)>
+  </WithStyles(Card)>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": <WithStyles(CardContent)>
+        <WithStyles(Typography)
+          className={
+            Object {
+              "fontSize": 15,
+              "marginBottom": 12,
+            }
+          }
+          color="textSecondary"
+        >
+          Nome: 
+          jose
+        </WithStyles(Typography)>
+        <WithStyles(Typography)
+          className={
+            Object {
+              "fontSize": 15,
+              "marginBottom": 12,
+            }
+          }
+          color="textSecondary"
+        >
+          CPF: 
+          123456
+        </WithStyles(Typography)>
+        <WithStyles(Typography)
+          className={
+            Object {
+              "fontSize": 15,
+              "marginBottom": 12,
+            }
+          }
+          color="textSecondary"
+        >
+          CNPJ: 
+        </WithStyles(Typography)>
+        <WithStyles(Typography)
+          className={
+            Object {
+              "fontSize": 15,
+              "marginBottom": 12,
+            }
+          }
+          color="textSecondary"
+        >
+          Telefone: 
+          30303030
+        </WithStyles(Typography)>
+        <WithStyles(Typography)
+          className={
+            Object {
+              "fontSize": 15,
+              "marginBottom": 12,
+            }
+          }
+          color="textSecondary"
+        >
+          Data de Nascimento: 
+          30
+        </WithStyles(Typography)>
+        <WithStyles(Typography)
+          className={
+            Object {
+              "fontSize": 15,
+              "marginBottom": 12,
+            }
+          }
+          color="textSecondary"
+        >
+          E-mail: 
+          jose@gmail.com
+        </WithStyles(Typography)>
+        <WithStyles(Typography)
+          className={
+            Object {
+              "fontSize": 15,
+              "marginBottom": 12,
+            }
+          }
+          color="textSecondary"
+        >
+          Nome Fantasia:
+        </WithStyles(Typography)>
+      </WithStyles(CardContent)>,
+      "className": Object {
+        "minWidth": 75,
+      },
+      "classes": Object {
+        "root": "MuiCard-root-1",
+      },
+      "raised": false,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <WithStyles(Typography)
+            className={
+              Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              }
+            }
+            color="textSecondary"
+          >
+            Nome: 
+            jose
+          </WithStyles(Typography)>,
+          <WithStyles(Typography)
+            className={
+              Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              }
+            }
+            color="textSecondary"
+          >
+            CPF: 
+            123456
+          </WithStyles(Typography)>,
+          <WithStyles(Typography)
+            className={
+              Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              }
+            }
+            color="textSecondary"
+          >
+            CNPJ: 
+          </WithStyles(Typography)>,
+          <WithStyles(Typography)
+            className={
+              Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              }
+            }
+            color="textSecondary"
+          >
+            Telefone: 
+            30303030
+          </WithStyles(Typography)>,
+          <WithStyles(Typography)
+            className={
+              Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              }
+            }
+            color="textSecondary"
+          >
+            Data de Nascimento: 
+            30
+          </WithStyles(Typography)>,
+          <WithStyles(Typography)
+            className={
+              Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              }
+            }
+            color="textSecondary"
+          >
+            E-mail: 
+            jose@gmail.com
+          </WithStyles(Typography)>,
+          <WithStyles(Typography)
+            className={
+              Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              }
+            }
+            color="textSecondary"
+          >
+            Nome Fantasia:
+          </WithStyles(Typography)>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              "Nome: ",
+              "jose",
+            ],
+            "className": Object {
+              "fontSize": 15,
+              "marginBottom": 12,
+            },
+            "color": "textSecondary",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Nome: ",
+            "jose",
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              "CPF: ",
+              123456,
+            ],
+            "className": Object {
+              "fontSize": 15,
+              "marginBottom": 12,
+            },
+            "color": "textSecondary",
+          },
+          "ref": null,
+          "rendered": Array [
+            "CPF: ",
+            123456,
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              "CNPJ: ",
+              undefined,
+            ],
+            "className": Object {
+              "fontSize": 15,
+              "marginBottom": 12,
+            },
+            "color": "textSecondary",
+          },
+          "ref": null,
+          "rendered": Array [
+            "CNPJ: ",
+            undefined,
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              "Telefone: ",
+              30303030,
+            ],
+            "className": Object {
+              "fontSize": 15,
+              "marginBottom": 12,
+            },
+            "color": "textSecondary",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Telefone: ",
+            30303030,
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              "Data de Nascimento: ",
+              30,
+            ],
+            "className": Object {
+              "fontSize": 15,
+              "marginBottom": 12,
+            },
+            "color": "textSecondary",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Data de Nascimento: ",
+            30,
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              "E-mail: ",
+              "jose@gmail.com",
+            ],
+            "className": Object {
+              "fontSize": 15,
+              "marginBottom": 12,
+            },
+            "color": "textSecondary",
+          },
+          "ref": null,
+          "rendered": Array [
+            "E-mail: ",
+            "jose@gmail.com",
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              "Nome Fantasia:",
+              undefined,
+            ],
+            "className": Object {
+              "fontSize": 15,
+              "marginBottom": 12,
+            },
+            "color": "textSecondary",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Nome Fantasia:",
+            undefined,
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": <WithStyles(CardContent)>
+          <WithStyles(Typography)
+            className={
+              Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              }
+            }
+            color="textSecondary"
+          >
+            Nome: 
+            jose
+          </WithStyles(Typography)>
+          <WithStyles(Typography)
+            className={
+              Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              }
+            }
+            color="textSecondary"
+          >
+            CPF: 
+            123456
+          </WithStyles(Typography)>
+          <WithStyles(Typography)
+            className={
+              Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              }
+            }
+            color="textSecondary"
+          >
+            CNPJ: 
+          </WithStyles(Typography)>
+          <WithStyles(Typography)
+            className={
+              Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              }
+            }
+            color="textSecondary"
+          >
+            Telefone: 
+            30303030
+          </WithStyles(Typography)>
+          <WithStyles(Typography)
+            className={
+              Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              }
+            }
+            color="textSecondary"
+          >
+            Data de Nascimento: 
+            30
+          </WithStyles(Typography)>
+          <WithStyles(Typography)
+            className={
+              Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              }
+            }
+            color="textSecondary"
+          >
+            E-mail: 
+            jose@gmail.com
+          </WithStyles(Typography)>
+          <WithStyles(Typography)
+            className={
+              Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              }
+            }
+            color="textSecondary"
+          >
+            Nome Fantasia:
+          </WithStyles(Typography)>
+        </WithStyles(CardContent)>,
+        "className": Object {
+          "minWidth": 75,
+        },
+        "classes": Object {
+          "root": "MuiCard-root-1",
+        },
+        "raised": false,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <WithStyles(Typography)
+              className={
+                Object {
+                  "fontSize": 15,
+                  "marginBottom": 12,
+                }
+              }
+              color="textSecondary"
+            >
+              Nome: 
+              jose
+            </WithStyles(Typography)>,
+            <WithStyles(Typography)
+              className={
+                Object {
+                  "fontSize": 15,
+                  "marginBottom": 12,
+                }
+              }
+              color="textSecondary"
+            >
+              CPF: 
+              123456
+            </WithStyles(Typography)>,
+            <WithStyles(Typography)
+              className={
+                Object {
+                  "fontSize": 15,
+                  "marginBottom": 12,
+                }
+              }
+              color="textSecondary"
+            >
+              CNPJ: 
+            </WithStyles(Typography)>,
+            <WithStyles(Typography)
+              className={
+                Object {
+                  "fontSize": 15,
+                  "marginBottom": 12,
+                }
+              }
+              color="textSecondary"
+            >
+              Telefone: 
+              30303030
+            </WithStyles(Typography)>,
+            <WithStyles(Typography)
+              className={
+                Object {
+                  "fontSize": 15,
+                  "marginBottom": 12,
+                }
+              }
+              color="textSecondary"
+            >
+              Data de Nascimento: 
+              30
+            </WithStyles(Typography)>,
+            <WithStyles(Typography)
+              className={
+                Object {
+                  "fontSize": 15,
+                  "marginBottom": 12,
+                }
+              }
+              color="textSecondary"
+            >
+              E-mail: 
+              jose@gmail.com
+            </WithStyles(Typography)>,
+            <WithStyles(Typography)
+              className={
+                Object {
+                  "fontSize": 15,
+                  "marginBottom": 12,
+                }
+              }
+              color="textSecondary"
+            >
+              Nome Fantasia:
+            </WithStyles(Typography)>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                "Nome: ",
+                "jose",
+              ],
+              "className": Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              },
+              "color": "textSecondary",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Nome: ",
+              "jose",
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                "CPF: ",
+                123456,
+              ],
+              "className": Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              },
+              "color": "textSecondary",
+            },
+            "ref": null,
+            "rendered": Array [
+              "CPF: ",
+              123456,
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                "CNPJ: ",
+                undefined,
+              ],
+              "className": Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              },
+              "color": "textSecondary",
+            },
+            "ref": null,
+            "rendered": Array [
+              "CNPJ: ",
+              undefined,
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                "Telefone: ",
+                30303030,
+              ],
+              "className": Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              },
+              "color": "textSecondary",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Telefone: ",
+              30303030,
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                "Data de Nascimento: ",
+                30,
+              ],
+              "className": Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              },
+              "color": "textSecondary",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Data de Nascimento: ",
+              30,
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                "E-mail: ",
+                "jose@gmail.com",
+              ],
+              "className": Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              },
+              "color": "textSecondary",
+            },
+            "ref": null,
+            "rendered": Array [
+              "E-mail: ",
+              "jose@gmail.com",
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                "Nome Fantasia:",
+                undefined,
+              ],
+              "className": Object {
+                "fontSize": 15,
+                "marginBottom": 12,
+              },
+              "color": "textSecondary",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Nome Fantasia:",
+              undefined,
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {},
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;

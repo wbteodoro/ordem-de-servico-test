@@ -1,31 +1,47 @@
-import React, {Component} from 'react';
-import FormClient from '../FormClient/FormClient';
-import Button from '@material-ui/core/Button';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 
 class CardClient extends Component {
+  render() {
 
-    formClient = React.createRef();
-
-    openModal = () => {
-        this.formClient.current.open();
-    };
-
-    updateState(dados)
-    {
-        console.log(dados)
-    }
-
-    render() {
-        return (
-            <div>
-                <Button variant="outlined" color="primary" onClick={() => this.openModal()}>
-                    Cadastrar
-                </Button>
-                <FormClient ref={this.formClient} onClickSaveButton={(dados) => this.updateState(dados)} onClickCloseButton={() => null} />
-            </div>
-        );
-    }
+    return (
+      <Card>
+        <CardContent>
+          {/* As informações virão da variavel dados do FormClient*/}
+            <Typography color="textSecondary" gutterBottom>
+              Nome: {this.props.serviceOrder.name}
+            </Typography>
+            <Typography color="textSecondary" gutterBottom>
+              CPF: {this.props.serviceOrder.cpf}
+            </Typography>
+            <Typography color="textSecondary" gutterBottom>
+              CNPJ: {this.props.serviceOrder.cnpf}
+            </Typography>
+            <Typography color="textSecondary" gutterBottom>
+              Telefone: {this.props.serviceOrder.phone}
+            </Typography>
+            <Typography color="textSecondary" gutterBottom>
+              Data de Nascimento: {this.props.serviceOrder.birth_date}
+            </Typography>
+            <Typography color="textSecondary" gutterBottom>
+              E-mail: {this.props.serviceOrder.email}
+            </Typography>
+            <Typography color="textSecondary" gutterBottom>
+              Nome Fantasia:{this.props.serviceOrder.fantasy_name}
+            </Typography>
+        </CardContent>
+      </Card>      
+    )
+  }
 }
 
-export default CardClient;
+
+CardClient.propTypes = {
+    serviceOrder: PropTypes.object.isRequired,
+}
+
+export default CardClient
