@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import FormClient from '../FormClient/FormClient';
 
 
 class CardClient extends Component {
@@ -42,6 +43,6 @@ class CardClient extends Component {
 
 CardClient.propTypes = {
     serviceOrder: PropTypes.object.isRequired,
-}
+};
 
 export default CardClient

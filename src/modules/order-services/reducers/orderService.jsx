@@ -22,12 +22,4 @@ export default function orderService(_state = {
     }
 }
 
-orderService(undefined, {
-    type: 'ADD_SERVICE',
-    payload: {
-        description: '',
-        value: '',
-        quantity: ''
-    }
-});
 

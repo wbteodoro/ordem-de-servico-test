@@ -77,7 +77,7 @@ ListServices.propTypes = {
     onClickServiceDeleteButton: PropTypes.func.isRequired,
     onClickServiceEditButton: PropTypes.func.isRequired,
     classes: PropTypes.object.isRequired
-}
+};
 
 
 export default withStyles(styles)(ListServices)

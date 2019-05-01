@@ -75,9 +75,9 @@ class FormClient extends Component {
 
     render() {
 
-        return (
+        return this.state.open && (
             <div>
-                <Dialog open={this.state.open} fullWidth maxWidth={"sm"}>
+                <Dialog open={true} fullWidth maxWidth={"sm"} className={'dialog-form-client'}>
                     <DialogTitle>
                         Adicionar/Editar Cliente
                     </DialogTitle>
